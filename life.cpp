@@ -57,8 +57,7 @@ void Life::mouseMoveEvent(QMouseEvent *event)
 {
     QPoint point = event->pos();
 
-    if(imageSize.width() <= point.x() || point.x() < 0 ||
-       imageSize.height() <= point.y() || point.y() < 0)
+    if(!image->valid(point.x(), point.y()))
         return;
 
     if(image->pixelColor(point) != BACKGROUND_COLOR)
